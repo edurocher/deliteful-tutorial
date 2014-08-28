@@ -3,7 +3,7 @@
 Welcome to [deliteful](http://ibm-js.github.io/deliteful/index.htm), a set of multi channel,
 enterprise class Web Components to be used in Web & Mobile Hybrid applications.
 
-This tutorial is part of a series showing how to create a simple web application using the Deliteful components.
+This tutorial is part of a series showing how to create a simple web application using the deliteful components.
 In this first part, you will learn how to get started with deliteful and quickly create a basic web application
 that can run both on mobile and desktop browsers.
 
@@ -24,3 +24,21 @@ To install yeoman, run this in a shell window:
 $ npm install -g yo
 $ npm install -g generator-deliteful-app
 ````
+
+##Creating the application skeleton
+
+Create a directory of your choice, then run yeoman in it:
+
+````
+$ mkdir gettingstarted
+$ cd gettingstarted
+$ yo deliteful-app
+````
+
+Yeoman will ask you the name of your application, type `deliteful-tutorial` since this is what we will use throughout
+ this tutorial.
+
+````
+[?] What is the name of your deliteful application package? deliteful-tutorial
+````
+
