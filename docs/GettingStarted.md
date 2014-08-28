@@ -1,6 +1,6 @@
 #Getting Started with Deliteful
 
-Welcome to [http://ibm-js.github.io/deliteful/index.htm](deliteful), a set of multi channel,
+Welcome to [deliteful](http://ibm-js.github.io/deliteful/index.htm), a set of multi channel,
 enterprise class Web Components to be used in Web & Mobile Hybrid applications.
 
 This tutorial is part of a series showing how to create a simple web application using the Deliteful components.
@@ -13,11 +13,11 @@ Deliteful leverages some industry standard tools that you need to install.
 
 ###Node.js
 
-All tools are JavaScript-based and run on top of Node.js, that you can install from [http://nodejs.org/](nodejs.org).
+All tools are JavaScript-based and run on top of Node.js, that you can install from [nodejs.org](http://nodejs.org/).
 
 ###Yeoman
 
-[http://yeoman.io/](Yeoman) is the tool that we will use to generate a basic skeleton for our application.
+[Yeoman](http://yeoman.io) is the tool that we will use to generate a basic skeleton for our application.
 To install yeoman, run this in a shell window:
 
 ````
