@@ -7,6 +7,10 @@ This tutorial is part of a series showing how to create a simple web application
 In this first part, you will learn how to get started with deliteful and quickly create a basic web application
 that can run both on mobile and desktop browsers.
 
+The application that we will create lets you search and view photos posted on Flickr:
+
+![Flickr app screen shot - final](images/final.png)
+
 ##Installing Tools
 
 Deliteful leverages some industry standard tools that you need to install.
@@ -25,7 +29,7 @@ $ npm install -g yo
 $ npm install -g generator-deliteful-app
 ````
 
-##Creating the application skeleton
+##Creating the Application Skeleton
 
 Create a directory of your choice, then run yeoman in it:
 
@@ -41,4 +45,24 @@ Yeoman will ask you the name of your application, type `deliteful-tutorial` sinc
 ````
 [?] What is the name of your deliteful application package? deliteful-tutorial
 ````
+
+##Deploying the Application on a Web Server
+
+You may be already familiar with this, but most  browsers will not run scripts in web pages loaded from the file
+system, so you need to deploy the application on a web server to be able to view it correctly.
+
+If you already have a web app development environment and/or a web server setup on your computer,
+and you know how to deploy a web application, you may skip this step.
+
+Otherwise, a very easy way is to use the `local-web-server` npm package:
+
+````
+$ npm install -g local-web-server
+$ ws
+````
+
+Now point your web browser to `http://localhost:8000`. You should see the application skeleton created by the
+Yeoman generator:
+
+![Flickr app screen shot - Initial](images/initial.png)
 
