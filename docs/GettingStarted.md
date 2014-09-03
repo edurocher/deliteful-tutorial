@@ -48,21 +48,19 @@ Yeoman will ask you the name of your application, type `deliteful-tutorial` sinc
 
 ##Deploying the Application on a Web Server
 
-You may be already familiar with this, but most  browsers will not run scripts in web pages loaded from the file
-system, so you need to deploy the application on a web server to be able to view it correctly.
+You need to deploy the application on a web server to be able to view it correctly in a browser.
 
-If you already have a web app development environment and/or a web server setup on your computer,
-and you know how to deploy a web application, you may skip this step.
+If you already have a web server setup and you are familiar with deploying applications on it, you can skip this step.
 
-Otherwise, a very easy way is to use the `local-web-server` npm package:
+Otherwise, a very easy way to deploy the application is to use the `local-web-server` npm package:
 
 ````
 $ npm install -g local-web-server
 $ ws
 ````
 
-Now point your web browser to `http://localhost:8000`. You should see the application skeleton created by the
-Yeoman generator:
+Now point your web browser to `http://localhost:8000`. You should see the application skeleton created by the Yeoman
+generator:
 
 ![Flickr app screen shot - Initial](images/initial.png)
 
