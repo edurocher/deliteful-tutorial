@@ -45,14 +45,12 @@
                 <button is="d-button" onclick="refreshPhotoList()">Refresh</button>
             </div>
         </d-linear-layout>
-        <!-- page content -->
-        <d-view-stack class="fill">
-            <div>
-                <d-list class="width100 height100" id="photolist" copyAllItemProps="true">
-                </d-list>
-                <d-progress-indicator id="pi"></d-progress-indicator>
-            </div>
-        </d-view-stack>
+        <!-- scrollable list -->
+        <div class="fill">
+            <d-list class="width100 height100" id="photolist" copyAllItemProps="true">
+            </d-list>
+            <d-progress-indicator id="pi"></d-progress-indicator>
+        </div>
     </d-linear-layout>
     <!-- detail view -->
     <d-linear-layout class="page width100 height100" id="detailsView">

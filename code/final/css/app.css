@@ -6,10 +6,6 @@
 	padding: 0.3em;
 }
 
-.d-side-pane {
-	border-right: 1px solid #357ebd;
-}
-
 .titleStyle {
     text-align: center;
     line-height: 40px;
@@ -19,6 +15,11 @@
 .d-button {
     border-radius: 0;
 }
+
+#photolist {
+    position: absolute
+}
+
 .d-list-item .d-list-cell {
     line-height: 20px;
     height: 100px;
@@ -71,6 +72,10 @@
     left: 0;
     margin: auto;
 }
+.d-side-pane {
+    border-right: 1px solid #357ebd;
+}
+
 .formLabel {
     font-size: 14px;
     font-weight: bold;
