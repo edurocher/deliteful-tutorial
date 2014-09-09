@@ -7,10 +7,6 @@ This tutorial is part of a series showing how to create a simple web application
 In this first part, you will learn how to get started with deliteful and quickly create a basic web application
 that can run both on mobile and desktop browsers.
 
-The application that we will create lets you search and view photos posted on Flickr:
-
-![Flickr Photo Feed Application](images/final.png)
-
 ##Installing Tools
 
 Deliteful leverages some industry standard tools that you need to install.

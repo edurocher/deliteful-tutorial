@@ -112,8 +112,36 @@ Note in particular that all deliteful components have a CSS class with the same 
 }
 ````
 
+## JavaScript
+
+The default application contains some JavaScript code that you can often reuse to get started.
+
+````
+		<script>
+			require.config({
+				baseUrl: "bower_components"
+			});
+			require(["delite/register", "delite/theme!delite/themes/{{theme}}/global.css", "deliteful/ViewStack",
+					"deliteful/SidePane", "deliteful/LinearLayout", "deliteful/Button", "deliteful/StarRating",
+					"deliteful/ProgressBar", "deliteful/list/List", "requirejs-domready/domReady!"], function(register) {
+				register.parse();
+				document.body.style.display = "";
+				list.selectedItem = list.store.get("first");
+			});
+		</script>
+````
+
+The `require.config` calls tells the browsers where to find the various delite, deliteful and other libraries.
+
+The `require` call loads the AMD modules containing the components used in the application.
+
+The `register.parse()` call is necessary so that delite/deliteful widgets are correctly initialized on all browsers.
+
+The body of the application is initially hidden by a `display: none` style. This is a well-known technique to
+make sure that the DOM will not be displayed before it is fully initialized by the delite/deliteful code. The
+`document.body.style.display = "";` line makes the body visible once everything is correctly setup.
+
 ##Next Step
 
 Now that you have a basic understanding of how to create a simple deliteful application,
-let's move to the [next step](Views.md) where we will modify the markup and CSS to define the views of our
-Flickr photo feed application.
+let's move to the [next step](FlickrApp.md) where we will describe the application that we will create.
