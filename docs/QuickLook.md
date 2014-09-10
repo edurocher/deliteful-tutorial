@@ -49,9 +49,8 @@ Let's start with the second element. The `<d-linear-layout>` component is a cont
 	</d-linear-layout>
 ````
 
-Note the three CSS classes on the toplevel `d-linear-layout`: `page` means that it is a toplevel element of the web
-page,  `width100` and `height100` indicate that it should fill the whole width and height of the page. Deliteful uses
- such CSS classes to define common layouts or styles.
+Note the `width100` and `height100` CSS classes on the toplevel `d-linear-layout`,
+they indicate that it should fill the whole width and height of the page.
 
 The toplevel `d-linear-layout` element contains two children: another nested `d-linear-layout` element,
 which will be the header of the page, and a `d-view-stack` element.

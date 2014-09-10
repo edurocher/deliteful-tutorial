@@ -14,7 +14,7 @@ Edit the contents of the `d-linear-layout` below the `<!-- page content -->` as 
 
 ````
 	<!-- page content -->
-	<d-linear-layout class="page width100 height100" id="listView">
+	<d-linear-layout class="width100 height100" id="listView">
         <!-- page content header -->
         <d-linear-layout vertical="false" class="pageHeader">
             <div>
@@ -68,15 +68,14 @@ To achieve that, we will wrap our toplevel `d-linear-layout` inside a `d-view-st
 
 ````
 <!-- page content -->
-<d-view-stack class="page width100 height100" id="vs">
-	<d-linear-layout class="width100 height100" id="listView">
+<d-view-stack class="width100 height100" id="vs">
+	<d-linear-layout id="listView">
 	...
 	</d-linear-layout>
 </d-view-stack>
 ````
 
-Note that we moved the `page` class to the toplevel `d-view-stack`: the `page` class should always be on the toplevel
- component of the page.
+(Note that we moved the `class="width100 height100"` to the toplevel `d-view-stack`)
 
 Finally, we want to display a list of photos, so let's add a `d-list` component as the contents of our view. For
 this, replace the `<!-- page content will go here -->` placeholder by a
@@ -175,6 +174,8 @@ request completes. The reply sent by Flickr will be a JSON string containing a c
 (`photosReceived` in our case), with an array of JavaScript objects as parameter, each object describing a photo: the
  URL of a thumbnail image, the photo title, etc.
 
+##Displaying the Photo List
+
 OK, that was the hard part! We would like to see something on the screen now, the good news is that it's really easy.
 We have asked for a `photoReceived` function to be called, so let's create it:
 
@@ -223,8 +224,8 @@ We can already try that and open `index.html` in a browser:
 
 ![List View 1](images/listview1.png)
 
-OK, that's a bit disappointing. At least our code works, we can see items in the list,
-but they are empty. We just miss one piece: we need to tell the List widget what to display exactly. Our JSON
+OK, we can see that our code works because the list is populated with items, but they are empty.
+We just miss one piece: we need to tell the List widget what to display exactly. Our JSON
 photo descriptions have a `title` property that we would like to display in the list. Again that's
 very easy, just add a `labelAttr` attribute to the `d-list` element:
 
@@ -236,3 +237,7 @@ And here is the result:
 
 ![List View 2](images/listview2.png)
 
+##Next Step
+
+We learned the basic techniques to connect a deliteful widget to data retrieved from a server. In the next step,
+we will further customize our list view to enhance the display.
