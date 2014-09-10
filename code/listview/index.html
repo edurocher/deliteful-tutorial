@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<link rel="stylesheet" href="css/app.css">
+		<link rel="stylesheet" href="bower_components/delite/themes/defaultapp.css">
+		<script src="bower_components/requirejs/require.js"></script>
+        <script src="js/app.js"></script>
+	</head>
+	<body style="display: none">
+
+	<!-- left menu side pane -->
+	<d-side-pane mode="push" position="start" id="leftPane">
+		<d-linear-layout class="height100">
+			<!-- left menu header -->
+			<d-linear-layout vertical="false" class="pageHeader">
+				<div class="fill titleStyle">Menu</div>
+			</d-linear-layout>
+			<!-- left menu content -->
+			<d-list id="list" on-selection-change="vs.show(event.newValue.id)" selectionMode="radio">
+				<d-list-store>
+					{"label": "First View", "id": "first" },
+					{"label": "Second View", "id": "second" },
+					{"label": "Third View", "id": "third" }
+					<!--{"label": "Fourth View", "id": "fourth" }-->
+				</d-list-store>
+			</d-list>
+		</d-linear-layout>
+	</d-side-pane>
+
+<!-- page content -->
+<d-view-stack class="page width100 height100" id="vs">
+	<d-linear-layout class="width100 height100" id="listView">
+        <!-- page content header -->
+        <d-linear-layout vertical="false" class="pageHeader">
+            <div>
+                <button is="d-button" onclick="leftPane.toggle()">Settings</button>
+            </div>
+            <div class="fill titleStyle">Flickr Photo Feed</div>
+            <div>
+                <button is="d-button" onclick="refreshPhotoList()">Refresh</button>
+            </div>
+        </d-linear-layout>
+        <!-- scrollable list -->
+        <div class="fill">
+            <d-list class="width100 height100" id="photolist" labelAttr="title">
+            </d-list>
+        </div>
+	</d-linear-layout>
+</d-view-stack>
+	</body>
+</html>

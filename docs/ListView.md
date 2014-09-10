@@ -89,6 +89,8 @@ this, replace the `<!-- page content will go here -->` placeholder by a
         </div>
 ````
 
+Note our List widget has a `photolist` id, this will allow us to reference the widget in our JavaScript code later.
+
 And also add this in `css/app.css` to ensure the list is correctly sized
 (see [the LinearLayout doc](http://ibm-js.github.io/deliteful/docs/master/LinearLayout.html#configuration)
 for more details on why this is needed)
@@ -136,7 +138,8 @@ technique. (JSONP is not very commonly used in real world applications, but it h
 setup any server-side code, and it is good enough to simulate a server request in our example app).
 
 Here is the code that does the JSONP request, paste it in your `app.js` file at the end of the `require` function
-(after the `<!-- app code will go here -->` comment).
+(after the `<!-- app code will go here -->` comment):
+
 
 ````
 	var script;
@@ -145,12 +148,10 @@ Here is the code that does the JSONP request, paste it in your `app.js` file at 
 	// When the request completes, the "photosReceived" function will be called with json objects
 	// describing each photo.
 	function getPhotos(tags) {
-		requestDone();
-
-		pi.active = true;
+		requestDone(); // abort current request if any
 
 		var url = "http://api.flickr.com/services/feeds/photos_public.gne?format=json&jsoncallback=photosReceived&tags=" +
-			tags + "&tagmode=" + settings.tagMode;
+			tags + "&tagmode=all";
 		script = document.createElement("script");
 		script.type = 'text/javascript';
 		script.src = url;
@@ -165,11 +166,73 @@ Here is the code that does the JSONP request, paste it in your `app.js` file at 
 			script.parentNode.removeChild(script);
 			script = null;
 		}
-		pi.active = false;
 	}
 ````
 
-We won't go into the details of the code, but in short this code sends a request to Flickr,
-and the reply is a JSON string that calls the `photosReceived` function with the list of photo
-descriptions as parameter.
+We won't go into the details of the code, but in short the `getPhotos` function sends a request to the Flickr server.
+The URL contains the photo tags that we are interested in, and the name of a callback function to call when the
+request completes. The reply sent by Flickr will be a JSON string containing a call to that function
+(`photosReceived` in our case), with an array of JavaScript objects as parameter, each object describing a photo: the
+ URL of a thumbnail image, the photo title, etc.
+
+OK, that was the hard part! We would like to see something on the screen now, the good news is that it's really easy.
+We have asked for a `photoReceived` function to be called, so let's create it:
+
+````
+	photosReceived = function (json) {
+		// cleanup request
+		requestDone();
+		// show the photos in the list by simply setting the list's store
+		photolist.store = new Memory({data: json.items});
+	};
+
+````
+
+We must first call `requestDone()` (that's part of our quick JSONP implementation).
+
+Then, we just set the `store` property of our `photolist` widget. The `store` property is a common property that
+lets you connect data to many deliteful widgets. Deliteful has built-in connections to data stores defined by the
+[dstore](https://github.com/SitePen/dstore) project. In our case, we will use a
+[Memory](https://github.com/SitePen/dstore/blob/master/docs/Stores.md#memory) store that wraps JavaScript objects,
+since that is what our JSONP request returned to us.
+
+Note that you must also add `"dstore/Memory"` to the list of AMD requires and bind it to a `Memory` parameter in the
+require callback:
+
+````
+require(["delite/register", "dstore/Memory", ...], function(register, Memory) {
+````
+
+We must now initiate the request somehow. Let's create a function for this:
+
+````
+	refreshPhotoList = function () {
+		photolist.store = new Memory();
+		getPhotos("bridges,famous");
+	};
+````
+
+The `refreshPhotoList` function first clears the list then sends a new request (with hardcoded tags for now).
+Let's add a call to the function now, so the photos are retrieved and displayed at startup.
+
+````
+	refreshPhotoList();
+````
+
+We can already try that and open `index.html` in a browser:
+
+![List View 1](images/listview1.png)
+
+OK, that's a bit disappointing. At least our code works, we can see items in the list,
+but they are empty. We just miss one piece: we need to tell the List widget what to display exactly. Our JSON
+photo descriptions have a `title` property that we would like to display in the list. Again that's
+very easy, just add a `labelAttr` attribute to the `d-list` element:
+
+````
+    <d-list class="width100 height100" id="photolist" labelAttr="title">
+````
+
+And here is the result:
+
+![List View 2](images/listview2.png)
 
