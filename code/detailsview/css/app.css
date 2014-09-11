@@ -1,9 +1,9 @@
 .pageHeader {
-	background-color: #428bca;
-	color: white;
+    background-color: #428bca;
+    color: white;
     height: 48px;
-	border-bottom: 2px solid #357ebd;
-	padding: 0.3em;
+    border-bottom: 2px solid #357ebd;
+    padding: 0.3em;
 }
 
 .titleStyle {
@@ -12,6 +12,7 @@
     font-weight: bold;
     font-size: 16px;
 }
+
 .d-button {
     border-radius: 0;
 }
@@ -75,20 +76,4 @@
 #photoDetails {
     margin: 9px;
     overflow-y: auto;
-}
-.d-side-pane {
-    border-right: 1px solid #357ebd;
-}
-
-.formLabel {
-    font-size: 14px;
-    font-weight: bold;
-    margin: 6px 6px 0 6px;
-}
-.formInput {
-    margin: 6px;
-}
-.d-select {
-    align-self: flex-start;
-    margin: 6px;
 }
