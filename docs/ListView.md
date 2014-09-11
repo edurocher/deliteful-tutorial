@@ -22,7 +22,7 @@ Edit the contents of the `d-linear-layout` below the `<!-- page content -->` as 
             </div>
             <div class="fill titleStyle">Flickr Photo Feed</div>
             <div>
-                <button is="d-button" onclick="refreshPhotoList()">Refresh</button>
+                <button is="d-button">Refresh</button>
             </div>
         </d-linear-layout>
         <!-- page content will go here -->
@@ -214,10 +214,16 @@ We must now initiate the request somehow. Let's create a function for this:
 ````
 
 The `refreshPhotoList` function first clears the list then sends a new request (with hardcoded tags for now).
-Let's add a call to the function now, so the photos are retrieved and displayed at startup.
+Let us add a call to the function now, so the photos are retrieved and displayed at startup.
 
 ````
 	refreshPhotoList();
+````
+
+Let us also set a `click` handler on the "Refresh" button if the user wants to reload the photos:
+
+````
+                <button is="d-button" onclick="refreshPhotoList()">Refresh</button>
 ````
 
 We can already try that and open `index.html` in a browser:

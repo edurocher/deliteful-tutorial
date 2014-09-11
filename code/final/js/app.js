@@ -76,11 +76,11 @@ require([
 		var url = "http://api.flickr.com/services/feeds/photos_public.gne?format=json&jsoncallback=photosReceived&tags=" +
 			tags + "&tagmode=" + settings.tagMode;
 		script = document.createElement("script");
-		script.type = 'text/javascript';
+		script.type = "text/javascript";
 		script.src = url;
 		script.async = true;
-		script.charset = 'utf-8';
-		document.getElementsByTagName('head')[0].appendChild(script);
+		script.charset = "utf-8";
+		document.getElementsByTagName("head")[0].appendChild(script);
 	}
 
 	// Must be called to cleanup the current JSONP request (i.e. remove the "script" element).
@@ -97,7 +97,7 @@ require([
 	photosReceived = function (json) {
 		// cleanup request (remove the script element)
 		requestDone();
-		// temp hack to workaround delite bug on deeply nested props:
+		// TODO: remove temp hack to workaround delite bug on deeply nested props:
 		json.items.forEach(function (i) {
 			i.media_m = i.media.m;
 		});
