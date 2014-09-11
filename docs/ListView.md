@@ -245,5 +245,5 @@ And here is the result:
 
 ##Next Step
 
-We learned the basic techniques to connect a deliteful widget to data retrieved from a server. In the next step,
-we will further customize our list view to enhance the display.
+We learned the basic techniques to connect a deliteful widget to data retrieved from a server. In the
+[next step](CustomRenderer.md), we will further customize our list view to enhance the display.
