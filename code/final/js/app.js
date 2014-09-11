@@ -6,10 +6,10 @@ require.config({
 });
 require([
 	"delite/register", "dstore/Memory", "deliteful/list/ItemRenderer", "delite/handlebars", "ecma402/Intl",
-	"dstore/Observable", "delite/theme!delite/themes/{{theme}}/global.css", "deliteful/ViewStack", "deliteful/SidePane",
+	"delite/theme!delite/themes/{{theme}}/global.css", "deliteful/ViewStack", "deliteful/SidePane",
 	"deliteful/LinearLayout", "deliteful/Button", "deliteful/Select", "deliteful/list/List",
 	"requirejs-domready/domReady!"
-], function (register, Memory, ItemRenderer, handlebars, Intl, Observable) {
+], function (register, Memory, ItemRenderer, handlebars, Intl) {
 	register.parse();
 	document.body.style.display = "";
 
@@ -97,10 +97,6 @@ require([
 	photosReceived = function (json) {
 		// cleanup request (remove the script element)
 		requestDone();
-		// TODO: remove temp hack to workaround delite bug on deeply nested props:
-		json.items.forEach(function (i) {
-			i.media_m = i.media.m;
-		});
 		// show the photos in the list by simply setting the list's store
 		photolist.store = new Memory({data: json.items});
 	};
@@ -117,7 +113,7 @@ require([
 	// to DOM properties of the list items.
 	photolist.itemRenderer = register("d-photo-item", [HTMLElement, ItemRenderer], {
 		template: handlebars.compile("<template>" + "<div attach-point='renderNode'>" +
-			"<div class='photoThumbnailBg'>" + "<img class='photoThumbnail' src='{{item.media_m}}'>" + "</div>" +
+			"<div class='photoThumbnailBg'>" + "<img class='photoThumbnail' src='{{item.media.m}}'>" + "</div>" +
 			"<div class='photoSummary'>" + "<div class='photoTitle'>{{item.title}}</div>" +
 			"<div class='publishedTime'>{{this.formatDate(this.item.published)}}</div>" +
 			"<div class='author'>{{item.author}}</div>" + "</div>" + "</div>" + "</template>"),
