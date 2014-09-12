@@ -132,7 +132,7 @@ require([
 	};
 
 	tagModeChanged = function () {
-		settings.tagMode = tagModeSwitch.checked ? "any" : "all";
+		settings.tagMode = tagModeSwitch.checked ? "all" : "any";
 		refreshPhotoList();
 	};
 

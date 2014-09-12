@@ -1,4 +1,4 @@
-#Getting Started with Deliteful
+#Deliteful Tutorial (Part 1) - Getting Started with Deliteful
 
 Welcome to [deliteful](http://ibm-js.github.io/deliteful/index.htm), a set of multi channel,
 enterprise class Web Components to be used in Web & Mobile Hybrid applications.
@@ -62,7 +62,24 @@ generator:
 
 Congratulations! You just created and deployed your first deliteful application.
 
+##Running on a Mobile Device
+
+Deliteful components are designed to run on mobile as well as desktop. You can run the application on a mobile
+device, for this you just have to add some directives at the top of `index.html`:
+
+````
+<head>
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    ....
+</head>
+````
+
 ##Next Step
 
-Before we start building our own app, let's now have a [quick look](QuickLook.md) at some deliteful components that
+Before we start building our own app, let's now have a [quick look](Part_2_Quick_Look.md) at some deliteful components
+that
 make up this basic application.
+
+[Next Step - A Quick Look at Deliteful Components](Part_2_Quick_Look.md)
