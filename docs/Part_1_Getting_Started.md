@@ -1,6 +1,6 @@
 #Deliteful Tutorial (Part 1) - Getting Started with Deliteful
 
-Welcome to [deliteful](http://ibm-js.github.io/deliteful/index.htm), a set of multi channel,
+Welcome to [deliteful](http://ibm-js.github.io/deliteful/index.html), a set of multi channel,
 enterprise class Web Components to be used in Web & Mobile Hybrid applications.
 
 This tutorial is part of a series showing how to create a simple web application using the deliteful components.
