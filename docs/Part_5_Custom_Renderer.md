@@ -1,6 +1,6 @@
 #Deliteful Tutorial (Part 5) - Enhancing the List View
 
-In the [previous step](Part_4_List_View.md] of this tutorial we started to build our Flickr photo feed application.
+In the [previous step](Part_4_List_View.md) of this tutorial we started to build our Flickr photo feed application.
 We will now refine it to display more information for each photo. Remember, we wanted to obtain something like this:
 
 ![Photo List Item](images/itemsketch.png)
