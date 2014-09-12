@@ -161,6 +161,6 @@ example, and change the language to French:
 ##Congratulations!
 
 You have now completed this deliteful tutorial. More documentation and examples are available on the
-[deliteful web site](http://ibm-js.github.io/deliteful/index.htm).
+[deliteful web site](http://ibm-js.github.io/deliteful/index.html).
 
 [Previous Step - Adding a Details View](Part_6_Details_View.md)
