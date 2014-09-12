@@ -3,7 +3,7 @@ require.config({
 });
 require([
 	"delite/register", "dstore/Memory", "delite/theme!delite/themes/{{theme}}/global.css", "deliteful/ViewStack",
-	"deliteful/SidePane", "deliteful/LinearLayout", "deliteful/Button", "deliteful/StarRating", "deliteful/ProgressBar",
+	"deliteful/SidePane", "deliteful/LinearLayout", "deliteful/Button",
 	"deliteful/list/List", "requirejs-domready/domReady!"
 ], function (register, Memory) {
 	register.parse();

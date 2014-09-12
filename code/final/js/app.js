@@ -7,11 +7,13 @@ require.config({
 require([
 	"delite/register", "dstore/Memory", "deliteful/list/ItemRenderer", "delite/handlebars", "ecma402/Intl",
 	"delite/theme!delite/themes/{{theme}}/global.css", "deliteful/ViewStack", "deliteful/SidePane",
-	"deliteful/LinearLayout", "deliteful/Button", "deliteful/Select", "deliteful/list/List",
+	"deliteful/LinearLayout", "deliteful/Button", "deliteful/Switch", "deliteful/Select", "deliteful/list/List",
 	"requirejs-domready/domReady!"
 ], function (register, Memory, ItemRenderer, handlebars, Intl) {
 	register.parse();
 	document.body.style.display = "";
+
+	/*----- Code the for Settings view -----*/
 
 	// Initial settings
 	var settings = {
@@ -19,12 +21,6 @@ require([
 		tagMode: "all",
 		language: "en-us"
 	}
-
-	// Possible tag modes
-	var tagModes = [
-		{text: "Match all tags", value: "all"},
-		{text: "Match any tag", value: "any"}
-	];
 
 	// Possible display languages
 	var languages = [
@@ -38,25 +34,30 @@ require([
 		{text: "Trad. Chinese (HK)", value: "zh-hk"}
 	];
 
-	/*----- Populate/initialize elements in Settings view -----*/
+	// Initialize elements of the settings view based on initial settings:
 
 	tagsInput.value = settings.tags;
 
-	function initSelect(select, items, initialValue) {
-		items.forEach(function (item) {
-			select.store.add(item);
-			select.setSelected(item, item.value == initialValue);
-		});
-	}
+	tagModeSwitch.checked = settings.tagMode == "all" ? true : false;
 
-	initSelect(tagModeSelect, tagModes, settings.tagMode);
-	initSelect(languageSelect, languages, settings.language);
+	languages.forEach(function (l) {
+		languageSelect.store.add(l);
+		languageSelect.setSelected(l, l.value == settings.language);
+	});
 
-	/*----- Callback called when a settings input field is modified -----*/
+	// callbacks called when a settings input field is modified
 
-	updateSettings = function () {
+	tagsChanged = function () {
 		settings.tags = tagsInput.value;
-		settings.tagMode = tagModeSelect.value;
+		refreshPhotoList();
+	};
+
+	tagModeChanged = function () {
+		settings.tagMode = tagModeSwitch.checked ? "any" : "all";
+		refreshPhotoList();
+	};
+
+	languageChanged = function () {
 		settings.language = languageSelect.value;
 		refreshPhotoList();
 	};

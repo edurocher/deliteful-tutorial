@@ -7,7 +7,7 @@ require.config({
 require([
 	"delite/register", "dstore/Memory", "deliteful/list/ItemRenderer", "delite/handlebars", "ecma402/Intl",
 	"delite/theme!delite/themes/{{theme}}/global.css", "deliteful/ViewStack", "deliteful/SidePane",
-	"deliteful/LinearLayout", "deliteful/Button", "deliteful/StarRating", "deliteful/ProgressBar",
+	"deliteful/LinearLayout", "deliteful/Button",
 	"deliteful/list/List", "requirejs-domready/domReady!"
 ], function (register, Memory, ItemRenderer, handlebars, Intl) {
 	register.parse();

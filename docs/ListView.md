@@ -106,15 +106,16 @@ It is now time to write some JavaScript code. The default app contains a `<scrip
 but a better practice is to put code in a separate file.
 
 Create the `js` directory, create an `app.js` file. Copy the existing code from index.html,
-paste it in the new `app.js` file, removing the last line which we don't need:
+paste it in the new `app.js` file, removing things that we don't need: the `"deliteful/StarRating"` and
+`"deliteful/ProgressBar"` requires and the last instruction:
 
 ````
 			require.config({
 				baseUrl: "bower_components"
 			});
 			require(["delite/register", "delite/theme!delite/themes/{{theme}}/global.css", "deliteful/ViewStack",
-					"deliteful/SidePane", "deliteful/LinearLayout", "deliteful/Button", "deliteful/StarRating",
-					"deliteful/ProgressBar", "deliteful/list/List", "requirejs-domready/domReady!"], function(register) {
+					"deliteful/SidePane", "deliteful/LinearLayout", "deliteful/Button",
+					"deliteful/list/List", "requirejs-domready/domReady!"], function(register) {
 				register.parse();
 				document.body.style.display = "";
 				<!-- app code will go here -->
